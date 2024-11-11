@@ -19,31 +19,24 @@ def datiPrecipitazioni(nomeCitta):
             mesiMax=[]
             mesiMin=[]
             for mese, valore in rilevazioni: 
-                #print(mese)
-                #print(valore)
-                somma+=valore
-                if(valore>max):
-                    max=valore
-                if(valore<min):
+                somma+=valore #somma per media;
+                if(valore>max): #calcolo valore max
+                    max=valore 
+                if(valore<min): #calcolo valore min
                     min=valore
             for mese, valore in rilevazioni: 
-                if(max==valore):
+                if(max==valore): #trovo in che mesi si è verificato il valore max
                     mesiMax.append(mese)
-                if(min==valore):
+                if(min==valore): #trovo in che mesi si è verificato il valore min
                     mesiMin.append(mese)
 
         
-    if(somma==0):
+    if(somma==0): #se la somma è uguale a 0 la citta non esiste, quindi nemmeno la tupla
         return "La tupla non esiste!"  
-    else: 
+    else: #se la tupla esiste ritorna una tupla con (media, (valoreMax, mesiMax), (valoreMin, mesiMin))
         return (somma/len(rilevazioni), (max, mesiMax), (min, mesiMin))                
-        #print(somma/len(rilevazioni)) 
-        #print("Max ", max)
-        #print("Min ", min) 
-        #print("Mese/i min: ", mesiMin)
-        #print("Mese/i max: ", mesiMax)
      
-    
 nomeCitta=input("Inserisci la citta da controllare: ")
-       
+
+#richiamo la funzione per famri stampare la tupla
 print(datiPrecipitazioni(nomeCitta))
